@@ -1,0 +1,93 @@
+:root {
+    --bg-gradient-dark: linear-gradient(
+        180deg,
+        #183b87 0%,
+        #291f82 50%,
+        #010130 100%
+    );
+    --bg-gradient-light: linear-gradient(
+        180deg,
+        #e3f2fd 0%,
+        #bbdefb 50%,
+        #90caf9 100%
+    );
+
+    --dark-mode-width: 100px;
+    --dark-mode-height: 40px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg-gradient-light);
+    background-attachment: fixed;
+    transition: background 0.5s ease;
+}
+body.active{
+    background: var(--bg-gradient-dark);
+}
+
+body.active .circle{
+ transform: translateX(140%);
+ background-color: #2A2A2C;
+}
+body.active .circle #moon{
+    transform: translateX(0);
+}
+body.active .circle #sun{
+    transform: translateY(120%);
+}
+
+body.light-mode {
+    --bg-gradient: linear-gradient(
+        180deg,
+        #e3f2fd 0%,
+        #bbdefb 50%,
+        #90caf9 100%
+    );
+}
+
+
+.dark-mode{
+    height: var(--dark-mode-height);
+    width: var(--dark-mode-width);
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    background-color: #DFDEDE;
+    cursor: pointer;
+}
+
+.dark-mode .circle{
+    width: 40%;
+    height: 80%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    transform: translateX(10%);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+.dark-mode .circle ion-icon{
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    transition: transform 0.5s ease;
+}
+.dark-mode .circle #sun{
+    color: #FCDE5B;
+}
+.dark-mode .circle #moon{
+    color: white;
+    transform: translateY(-120%);
+}
+
+#divHeader{
+    padding: 1em;
+    display: flex;
+    
+}
