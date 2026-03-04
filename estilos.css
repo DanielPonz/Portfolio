@@ -5,89 +5,112 @@
         #291f82 50%,
         #010130 100%
     );
+
     --bg-gradient-light: linear-gradient(
         180deg,
-        #e3f2fd 0%,
-        #bbdefb 50%,
-        #90caf9 100%
+        #bcdcff 0%,
+        #7fb6f0 50%,
+        #4d95dc 100%
     );
 
     --dark-mode-width: 100px;
     --dark-mode-height: 40px;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body {
     margin: 0;
     min-height: 100vh;
-    background: var(--bg-gradient-light);
+    background: var(--bg-gradient-dark);
     background-attachment: fixed;
     transition: background 0.5s ease;
 }
-body.active{
-    background: var(--bg-gradient-dark);
+
+body.active {
+    background: var(--bg-gradient-light);
 }
 
-body.active .circle{
- transform: translateX(140%);
- background-color: #2A2A2C;
-}
-body.active .circle #moon{
-    transform: translateX(0);
-}
-body.active .circle #sun{
-    transform: translateY(120%);
-}
+/* =========================
+   BOTÓN TOGGLE
+========================= */
 
-body.light-mode {
-    --bg-gradient: linear-gradient(
-        180deg,
-        #e3f2fd 0%,
-        #bbdefb 50%,
-        #90caf9 100%
-    );
-}
-
-
-.dark-mode{
+.dark-mode {
     height: var(--dark-mode-height);
     width: var(--dark-mode-width);
     display: flex;
     align-items: center;
     border-radius: 999px;
-    background-color: #DFDEDE;
+    background-color: #6151f5;
     cursor: pointer;
 }
+body.active .dark-mode{
+    background-color: aliceblue;
+}
 
-.dark-mode .circle{
+/* Círculo */
+.dark-mode .circle {
     width: 40%;
     height: 80%;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: white;
-    transform: translateX(10%);
+    background-color: #2A2A2C;
+    transform: translateX(140%);
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
-.dark-mode .circle ion-icon{
+
+/* Movimiento en modo claro */
+body.active .circle {
+    transform: translateX(10%);
+    background-color: rgb(34, 154, 235);
+}
+
+/* Iconos */
+.dark-mode .circle ion-icon {
     width: 70%;
     height: 70%;
     position: absolute;
     transition: transform 0.5s ease;
 }
-.dark-mode .circle #sun{
+
+.dark-mode .circle #sun {
     color: #FCDE5B;
+    transform: translateY(120%);
 }
-.dark-mode .circle #moon{
+
+.dark-mode .circle #moon {
     color: white;
+    transform: translateY(0%);
+}
+
+/* Animación iconos en modo claro */
+body.active .circle #moon {
     transform: translateY(-120%);
 }
 
-#divHeader{
-    padding: 1em;
+body.active .circle #sun {
+    transform: translateY(0%);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+#divHeader {
     display: flex;
-    
+}
+
+#languaje a {
+    text-decoration: none;
+    color: black;
+}
+
+#languaje a:hover {
+    color: blue;
 }
